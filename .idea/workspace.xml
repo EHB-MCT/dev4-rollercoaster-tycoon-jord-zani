@@ -4,15 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="208b1abb-6da6-447f-a8ef-f2864956b439" name="Changes" comment="">
+    <list default="true" id="208b1abb-6da6-447f-a8ef-f2864956b439" name="Changes" comment="fixed project structure">
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Controller/AttractionController.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Controller/CategoryController.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Controller/FaultController.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Controller/MaintenanceController.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/AttractionModel.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/FaultModel.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Service/AttractionService.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Service/CategoryService.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Service/FaultService.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Service/MaintenanceService.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Controllers" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Repositories" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rollercoaster-tycoon/src/main/kotlin/be/ehb/rollercoastertycoon/Model/Attraction.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/Attraction.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rollercoaster-tycoon/src/main/kotlin/be/ehb/rollercoastertycoon/Model/Category.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/Category.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rollercoaster-tycoon/src/main/kotlin/be/ehb/rollercoastertycoon/Model/Fault.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/Fault.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rollercoaster-tycoon/src/main/kotlin/be/ehb/rollercoastertycoon/Model/Maintenance.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/Maintenance.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rollercoaster-tycoon/src/main/kotlin/be/ehb/rollercoastertycoon/Repository/Repositories.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Repository/Repositories.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/Attraction.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/Category.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/CategoryModel.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/Fault.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/MaintenanceModel.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/Maintenance.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Repository/Repositories.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Repository/Repositories.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +79,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jordl\OneDrive\Documenten\GitHub\dev4-rollercoaster-tycoon-jord-zani\Backend\src\main\kotlin\be\ehb\rollercoastertycoon" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -89,8 +104,19 @@
       <workItem from="1716432563747" duration="20000" />
       <workItem from="1716481622809" duration="649000" />
       <workItem from="1716492282047" duration="3037000" />
-      <workItem from="1716509030992" duration="1350000" />
+      <workItem from="1716509030992" duration="1424000" />
+      <workItem from="1716546238885" duration="629000" />
+      <workItem from="1716560201840" duration="7290000" />
     </task>
+    <task id="LOCAL-00001" summary="fixed project structure">
+      <option name="closed" value="true" />
+      <created>1716511794894</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716511794894</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,5 +132,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fixed project structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed project structure" />
   </component>
 </project>
