@@ -33,4 +33,17 @@ body {
 h1 {
   color: #333;
 }
+
+.router-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.router-link:hover {
+  text-decoration: underline;
+}
+
+v-container {
+  margin-top: 20px;
+}
 </style>
