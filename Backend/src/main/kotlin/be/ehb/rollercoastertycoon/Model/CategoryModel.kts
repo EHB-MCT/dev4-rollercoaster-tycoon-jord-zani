@@ -1,6 +1,6 @@
-package com.amusementpark.model
+package be.ehb.rollercoastertycoon.model
 
-import java.time.LocalDate
+import java.util.*
 import javax.persistence.*
 
 @Entity
