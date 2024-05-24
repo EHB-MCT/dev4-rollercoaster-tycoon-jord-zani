@@ -1,18 +1,21 @@
-// src/main.js
-import Vue from 'vue';
+import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import './App.css';
-import Vuetify from 'vuetify';
-import 'vuetify/dist/vuetify.min.css';
+import 'vuetify/styles'; // Ensure this import is correct
+import { createVuetify } from 'vuetify';
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
 import 'vue-loading-overlay/dist/css/index.css';
 
-Vue.config.productionTip = false;
+const vuetify = createVuetify({
+  components,
+  directives,
+});
 
-Vue.use(Vuetify);
+const app = createApp(App);
 
-new Vue({
-  router,
-  vuetify: new Vuetify(),
-  render: h => h(App)
-}).$mount('#app');
+app.use(router);
+app.use(vuetify);
+
+app.mount('#app');
