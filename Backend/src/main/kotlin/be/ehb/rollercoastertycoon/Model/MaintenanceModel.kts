@@ -1,14 +1,13 @@
-package com.amusementpark.model
+package be.ehb.rollercoastertycoon.model
 
-import java.time.LocalDate
+import java.util.*
 import javax.persistence.*
 
 @Entity
 data class Maintenance(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
-    val date: LocalDate,
+    val date: Date,
     val comments: String,
-    @ManyToOne @JoinColumn(name = "attraction_id")
-    val attraction: Attraction
+    @ManyToOne val attraction: Attraction
 )
