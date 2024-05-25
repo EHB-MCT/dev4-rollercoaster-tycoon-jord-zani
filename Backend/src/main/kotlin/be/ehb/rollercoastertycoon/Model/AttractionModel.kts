@@ -4,6 +4,7 @@ import java.util.*
 import javax.persistence.*
 
 @Entity
+Table(name = "attractions")
 data class Attraction(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
