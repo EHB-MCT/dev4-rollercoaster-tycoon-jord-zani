@@ -1,12 +1,41 @@
-package be.ehb.rollercoastertycoon.service
+package com.example.rollercoaster.service
 
-import be.ehb.rollercoastertycoon.model.*
-import be.ehb.rollercoastertycoon.repository.*
+import com.example.rollercoaster.model.Category
+import com.example.rollercoaster.repository.CategoryRepository
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import java.util.*
 
 @Service
-class CategoryService(private val categoryRepository: CategoryRepository) {
-    fun findAll(): List<Category> = categoryRepository.findAll()
-    fun save(category: Category): Category = categoryRepository.save(category)
-    fun deleteById(id: Long) = categoryRepository.deleteById(id)
+class CategoryService(@Autowired private val categoryRepository: CategoryRepository) {
+
+    fun getAllCategories(): List<Category> {
+        return categoryRepository.findAll()
+    }
+
+    fun getCategoryById(id: Long): Optional<Category> {
+        return categoryRepository.findById(id)
+    }
+
+    fun createCategory(category: Category): Category {
+        return categoryRepository.save(category)
+    }
+
+    fun updateCategory(id: Long, updatedCategory: Category): Optional<Category> {
+        return categoryRepository.findById(id).map {
+            val updated = it.copy(
+                name = updatedCategory.name
+            )
+            categoryRepository.save(updated)
+        }
+    }
+
+    fun deleteCategory(id: Long): Boolean {
+        return if (categoryRepository.existsById(id)) {
+            categoryRepository.deleteById(id)
+            true
+        } else {
+            false
+        }
+    }
 }
