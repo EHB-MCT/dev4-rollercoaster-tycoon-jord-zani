@@ -1,21 +1,12 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import router from './router';
-import './App.css';
-import 'vuetify/styles'; // Ensure this import is correct
-import { createVuetify } from 'vuetify';
-import * as components from 'vuetify/components';
-import * as directives from 'vuetify/directives';
-import 'vue-loading-overlay/dist/css/index.css';
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+import vuetify from './plugins/vuetify'
+import { loadFonts } from './plugins/webfontloader'
 
-const vuetify = createVuetify({
-  components,
-  directives,
-});
+loadFonts()
 
-const app = createApp(App);
-
-app.use(router);
-app.use(vuetify);
-
-app.mount('#app');
+createApp(App)
+  .use(router)
+  .use(vuetify)
+  .mount('#app')

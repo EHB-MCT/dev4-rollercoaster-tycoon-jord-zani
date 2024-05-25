@@ -8,7 +8,6 @@ import AddCategory from '@/views/AddCategory.vue';
 import EditCategory from '@/views/EditCategory.vue';
 import MaintenanceRecords from '@/views/MaintenanceRecords.vue';
 import AddMaintenanceRecord from '@/views/AddMaintenanceRecord.vue';
-import process from 'process';
 
 const routes = [
   {
@@ -59,7 +58,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes
 });
 
