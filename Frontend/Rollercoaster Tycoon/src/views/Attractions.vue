@@ -11,6 +11,7 @@
       </li>
     </ul>
     <loading v-model:active.sync="isLoading" :is-full-page="true"></loading>
+    <v-alert v-if="error" type="error">{{ error }}</v-alert>
   </v-container>
 </template>
 
@@ -27,7 +28,8 @@ export default {
   data() {
     return {
       attractions: [],
-      isLoading: false
+      isLoading: false,
+      error: null,
     };
   },
   created() {
@@ -36,13 +38,14 @@ export default {
   methods: {
     fetchAttractions() {
       this.isLoading = true;
-      apiClient.get('/attractions')
+      apiClient.get('/api/attractions')
         .then(response => {
           this.attractions = response.data;
           this.isLoading = false;
         })
         .catch(error => {
           this.isLoading = false;
+          this.error = 'There was an error fetching the attractions!';
           console.error('There was an error fetching the attractions!', error);
         });
     }
