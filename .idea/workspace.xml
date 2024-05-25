@@ -4,24 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="208b1abb-6da6-447f-a8ef-f2864956b439" name="Changes" comment="fixed project structure">
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Controller/AttractionController.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Controller/CategoryController.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Controller/FaultController.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Controller/MaintenanceController.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/AttractionModel.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/FaultModel.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Service/AttractionService.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Service/CategoryService.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Service/FaultService.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Service/MaintenanceService.kts" afterDir="false" />
+    <list default="true" id="208b1abb-6da6-447f-a8ef-f2864956b439" name="Changes" comment="updated pom.xml with springboot">
+      <change afterPath="$PROJECT_DIR$/Backend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/Attraction.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/Category.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/CategoryModel.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/Fault.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/MaintenanceModel.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Model/Maintenance.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Repository/Repositories.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Repository/Repositories.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +40,9 @@
   }
 }</component>
   <component name="KotlinScriptingSettings" supportWarning="false" />
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/Frontend/Rollercoaster Tycoon/package.json" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
@@ -63,18 +54,26 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Kotlin script (Beta).AttractionController.kts.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin script (Beta).Repositories.kts.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin script (Beta).RollercoasterTycoonApplication.kt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin script (Beta).RollercoasterTycoonApplication.kts.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Shell Script.mvnw.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/32491/Documents/GitHub&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/JDK&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\JetBrains\\IntelliJ IDEA 2024.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -83,6 +82,51 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jordl\OneDrive\Documenten\GitHub\dev4-rollercoaster-tycoon-jord-zani\Backend\src\main\kotlin\be\ehb\rollercoastertycoon" />
     </key>
+  </component>
+  <component name="RunManager" selected="Kotlin script (Beta).RollercoasterTycoonApplication.kt">
+    <configuration name="AttractionController.kts" type="KotlinStandaloneScriptRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="dev4-rollercoaster-tycoon-jord-zani" />
+      <option name="filePath" value="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/Controller/AttractionController.kts" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RollercoasterTycoonApplication.kt" type="KotlinStandaloneScriptRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="dev4-rollercoaster-tycoon-jord-zani" />
+      <option name="filePath" value="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/RollercoasterTycoonApplication.kt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RollercoasterTycoonApplication.kts" type="KotlinStandaloneScriptRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="dev4-rollercoaster-tycoon-jord-zani" />
+      <option name="filePath" value="$PROJECT_DIR$/Backend/src/main/kotlin/be/ehb/rollercoastertycoon/RollercoasterTycoonApplication.kts" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="mvnw" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/Backend/mvnw" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/Backend" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin script (Beta).RollercoasterTycoonApplication.kt" />
+        <item itemvalue="Kotlin script (Beta).AttractionController.kts" />
+        <item itemvalue="Kotlin script (Beta).RollercoasterTycoonApplication.kts" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -106,7 +150,12 @@
       <workItem from="1716492282047" duration="3037000" />
       <workItem from="1716509030992" duration="1424000" />
       <workItem from="1716546238885" duration="629000" />
-      <workItem from="1716560201840" duration="7290000" />
+      <workItem from="1716560201840" duration="8537000" />
+      <workItem from="1716582966678" duration="5391000" />
+      <workItem from="1716644216037" duration="4082000" />
+      <workItem from="1716670981232" duration="1123000" />
+      <workItem from="1716672133437" duration="1533000" />
+      <workItem from="1716673705618" duration="597000" />
     </task>
     <task id="LOCAL-00001" summary="fixed project structure">
       <option name="closed" value="true" />
@@ -116,7 +165,39 @@
       <option name="project" value="LOCAL" />
       <updated>1716511794894</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="created all controllers">
+      <option name="closed" value="true" />
+      <created>1716581919499</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716581919499</updated>
+    </task>
+    <task id="LOCAL-00003" summary="created all models, updated pom file">
+      <option name="closed" value="true" />
+      <created>1716582561825</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716582561825</updated>
+    </task>
+    <task id="LOCAL-00004" summary="created all services, updated application.properties">
+      <option name="closed" value="true" />
+      <created>1716582664274</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716582664274</updated>
+    </task>
+    <task id="LOCAL-00005" summary="updated pom.xml with springboot">
+      <option name="closed" value="true" />
+      <created>1716586614889</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716586614889</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,6 +216,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed project structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed project structure" />
+    <MESSAGE value="created all controllers" />
+    <MESSAGE value="created all models, updated pom file" />
+    <MESSAGE value="created all services, updated application.properties" />
+    <MESSAGE value="updated pom.xml with springboot" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated pom.xml with springboot" />
   </component>
 </project>

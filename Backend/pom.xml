@@ -19,6 +19,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<kotlin.version>1.6.10</kotlin.version>
+		<kotlin.compiler.incremental>true</kotlin.compiler.incremental>
 	</properties>
 
 	<dependencies>
@@ -78,9 +79,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<mainClass>be.ehb.rollercoastertycoon.RollercoasterTycoonApplication</mainClass>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
