@@ -1,4 +1,3 @@
-<!-- src/views/AddAttraction.vue -->
 <template>
   <v-container>
     <h1>Add New Attraction</h1>
@@ -9,12 +8,15 @@
         :rules="[v => !!v || 'Name is required']"
         required
       ></v-text-field>
-      <v-text-field
-        v-model="attraction.category"
+      <v-select
+        v-model="attraction.categoryId"
+        :items="categories"
+        item-title="name"
+        item-value="id"
         label="Category"
         :rules="[v => !!v || 'Category is required']"
         required
-      ></v-text-field>
+      ></v-select>
       <v-text-field
         v-model="attraction.capacity"
         label="Capacity"
@@ -50,18 +52,31 @@ export default {
     return {
       attraction: {
         name: '',
-        category: '',
+        categoryId: null,
         capacity: '',
         yearBuilt: '',
         imageUrl: '',
         videoUrl: ''
       },
+      categories: [],
       isLoading: false,
       error: null,
       valid: false
     };
   },
+  created() {
+    this.fetchCategories();
+  },
   methods: {
+    fetchCategories() {
+      apiClient.get('/categories')
+        .then(response => {
+          this.categories = response.data;
+        })
+        .catch(error => {
+          console.error('Error fetching categories:', error);
+        });
+    },
     submit() {
       if (this.$refs.form.validate()) {
         this.addAttraction();
@@ -70,7 +85,15 @@ export default {
     addAttraction() {
       this.error = null;
       this.isLoading = true;
-      apiClient.post('/attractions', this.attraction)
+      const newAttraction = {
+        name: this.attraction.name,
+        category: { id: this.attraction.categoryId },
+        capacity: this.attraction.capacity,
+        yearBuilt: this.attraction.yearBuilt,
+        imageUrl: this.attraction.imageUrl,
+        videoUrl: this.attraction.videoUrl
+      };
+      apiClient.post('/attractions', newAttraction)
         .then(() => {
           this.isLoading = false;
           this.$router.push('/attractions');
