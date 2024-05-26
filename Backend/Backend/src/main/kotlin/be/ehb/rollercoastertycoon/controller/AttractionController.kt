@@ -1,8 +1,11 @@
 package be.ehb.rollercoastertycoon.controller
 
+import be.ehb.rollercoastertycoon.exception.ResourceNotFoundException
 import be.ehb.rollercoastertycoon.model.Attraction
 import be.ehb.rollercoastertycoon.service.AttractionService
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -11,15 +14,15 @@ import org.springframework.web.bind.annotation.*
 class AttractionController(@Autowired private val attractionService: AttractionService) {
 
     @GetMapping
-    fun getAllAttractions(): List<Attraction> {
-        return attractionService.getAllAttractions()
+    fun getAllAttractions(pageable: Pageable): Page<Attraction> {
+        return attractionService.getAllAttractions(pageable)
     }
 
     @GetMapping("/{id}")
     fun getAttractionById(@PathVariable id: Long): ResponseEntity<Attraction> {
         return attractionService.getAttractionById(id).map {
             ResponseEntity.ok(it)
-        }.orElse(ResponseEntity.notFound().build())
+        }.orElseThrow { ResourceNotFoundException("Attraction not found with id $id") }
     }
 
     @PostMapping
@@ -31,7 +34,7 @@ class AttractionController(@Autowired private val attractionService: AttractionS
     fun updateAttraction(@PathVariable id: Long, @RequestBody attraction: Attraction): ResponseEntity<Attraction> {
         return attractionService.updateAttraction(id, attraction).map {
             ResponseEntity.ok(it)
-        }.orElse(ResponseEntity.notFound().build())
+        }.orElseThrow { ResourceNotFoundException("Attraction not found with id $id") }
     }
 
     @DeleteMapping("/{id}")
@@ -39,7 +42,7 @@ class AttractionController(@Autowired private val attractionService: AttractionS
         return if (attractionService.deleteAttraction(id)) {
             ResponseEntity.noContent().build()
         } else {
-            ResponseEntity.notFound().build()
+            throw ResourceNotFoundException("Attraction not found with id $id")
         }
     }
 }

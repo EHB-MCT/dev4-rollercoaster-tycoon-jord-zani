@@ -1,4 +1,3 @@
 package be.ehb.rollercoastertycoon.exception
 
-class ResourceNotFoundException {
-}
+class ResourceNotFoundException(message: String) : RuntimeException(message)

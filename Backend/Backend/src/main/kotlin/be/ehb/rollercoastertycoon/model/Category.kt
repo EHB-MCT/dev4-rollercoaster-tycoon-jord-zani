@@ -7,5 +7,7 @@ import jakarta.persistence.*
 data class Category(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
-    val name: String
+    val name: String,
+    @OneToMany(mappedBy = "category")
+    val attractions: List<Attraction> = mutableListOf()
 )

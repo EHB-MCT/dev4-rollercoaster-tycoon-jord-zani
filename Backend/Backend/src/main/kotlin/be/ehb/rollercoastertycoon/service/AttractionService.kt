@@ -3,14 +3,16 @@ package be.ehb.rollercoastertycoon.service
 import be.ehb.rollercoastertycoon.model.Attraction
 import be.ehb.rollercoastertycoon.repository.AttractionRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 import java.util.*
 
 @Service
 class AttractionService(@Autowired private val attractionRepository: AttractionRepository) {
 
-    fun getAllAttractions(): List<Attraction> {
-        return attractionRepository.findAll()
+    fun getAllAttractions(pageable: Pageable): Page<Attraction> {
+        return attractionRepository.findAll(pageable)
     }
 
     fun getAttractionById(id: Long): Optional<Attraction> {
