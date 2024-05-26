@@ -4,8 +4,6 @@ import be.ehb.rollercoastertycoon.exception.ResourceNotFoundException
 import be.ehb.rollercoastertycoon.model.Attraction
 import be.ehb.rollercoastertycoon.service.AttractionService
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.data.domain.Page
-import org.springframework.data.domain.Pageable
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -14,8 +12,8 @@ import org.springframework.web.bind.annotation.*
 class AttractionController(@Autowired private val attractionService: AttractionService) {
 
     @GetMapping
-    fun getAllAttractions(pageable: Pageable): Page<Attraction> {
-        return attractionService.getAllAttractions(pageable)
+    fun getAllAttractions(): List<Attraction> {
+        return attractionService.getAllAttractions()
     }
 
     @GetMapping("/{id}")

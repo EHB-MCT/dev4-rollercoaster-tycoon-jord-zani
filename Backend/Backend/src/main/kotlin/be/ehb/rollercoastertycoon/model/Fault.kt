@@ -7,6 +7,10 @@ import jakarta.persistence.*
 data class Fault(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
+
+    @ManyToOne @JoinColumn(name = "attraction_id")
+    val attraction: Attraction,
+
     val description: String,
     val resolved: Boolean = false
 )

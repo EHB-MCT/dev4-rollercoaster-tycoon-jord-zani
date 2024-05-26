@@ -13,12 +13,27 @@ class MaintenanceService(@Autowired private val maintenanceRepository: Maintenan
         return maintenanceRepository.findAll()
     }
 
+    fun getMaintenanceRecordsByAttraction(attractionId: Long): List<Maintenance> {
+        return maintenanceRepository.findByAttractionId(attractionId)
+    }
+
     fun getMaintenanceRecordById(id: Long): Optional<Maintenance> {
         return maintenanceRepository.findById(id)
     }
 
     fun createMaintenanceRecord(maintenance: Maintenance): Maintenance {
         return maintenanceRepository.save(maintenance)
+    }
+
+    fun updateMaintenanceRecord(id: Long, updatedMaintenance: Maintenance): Optional<Maintenance> {
+        return maintenanceRepository.findById(id).map {
+            val updated = it.copy(
+                date = updatedMaintenance.date,
+                description = updatedMaintenance.description,
+                attraction = updatedMaintenance.attraction
+            )
+            maintenanceRepository.save(updated)
+        }
     }
 
     fun deleteMaintenanceRecord(id: Long): Boolean {

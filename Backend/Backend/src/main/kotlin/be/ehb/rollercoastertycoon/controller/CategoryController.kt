@@ -1,5 +1,6 @@
 package be.ehb.rollercoastertycoon.controller
 
+import be.ehb.rollercoastertycoon.exception.ResourceNotFoundException
 import be.ehb.rollercoastertycoon.model.Category
 import be.ehb.rollercoastertycoon.service.CategoryService
 import org.springframework.beans.factory.annotation.Autowired
@@ -19,7 +20,7 @@ class CategoryController(@Autowired private val categoryService: CategoryService
     fun getCategoryById(@PathVariable id: Long): ResponseEntity<Category> {
         return categoryService.getCategoryById(id).map {
             ResponseEntity.ok(it)
-        }.orElse(ResponseEntity.notFound().build())
+        }.orElseThrow { ResourceNotFoundException("Category not found with id $id") }
     }
 
     @PostMapping
@@ -31,7 +32,7 @@ class CategoryController(@Autowired private val categoryService: CategoryService
     fun updateCategory(@PathVariable id: Long, @RequestBody category: Category): ResponseEntity<Category> {
         return categoryService.updateCategory(id, category).map {
             ResponseEntity.ok(it)
-        }.orElse(ResponseEntity.notFound().build())
+        }.orElseThrow { ResourceNotFoundException("Category not found with id $id") }
     }
 
     @DeleteMapping("/{id}")
@@ -39,7 +40,7 @@ class CategoryController(@Autowired private val categoryService: CategoryService
         return if (categoryService.deleteCategory(id)) {
             ResponseEntity.noContent().build()
         } else {
-            ResponseEntity.notFound().build()
+            throw ResourceNotFoundException("Category not found with id $id")
         }
     }
 }

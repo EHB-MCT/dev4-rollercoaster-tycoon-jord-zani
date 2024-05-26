@@ -1,5 +1,6 @@
 package be.ehb.rollercoastertycoon.controller
 
+import be.ehb.rollercoastertycoon.exception.ResourceNotFoundException
 import be.ehb.rollercoastertycoon.model.Maintenance
 import be.ehb.rollercoastertycoon.service.MaintenanceService
 import org.springframework.beans.factory.annotation.Autowired
@@ -15,11 +16,16 @@ class MaintenanceController(@Autowired private val maintenanceService: Maintenan
         return maintenanceService.getAllMaintenanceRecords()
     }
 
+    @GetMapping("/attraction/{attractionId}")
+    fun getMaintenanceRecordsByAttraction(@PathVariable attractionId: Long): List<Maintenance> {
+        return maintenanceService.getMaintenanceRecordsByAttraction(attractionId)
+    }
+
     @GetMapping("/{id}")
     fun getMaintenanceRecordById(@PathVariable id: Long): ResponseEntity<Maintenance> {
         return maintenanceService.getMaintenanceRecordById(id).map {
             ResponseEntity.ok(it)
-        }.orElse(ResponseEntity.notFound().build())
+        }.orElseThrow { ResourceNotFoundException("Maintenance record not found with id $id") }
     }
 
     @PostMapping
@@ -27,12 +33,19 @@ class MaintenanceController(@Autowired private val maintenanceService: Maintenan
         return maintenanceService.createMaintenanceRecord(maintenance)
     }
 
+    @PutMapping("/{id}")
+    fun updateMaintenanceRecord(@PathVariable id: Long, @RequestBody maintenance: Maintenance): ResponseEntity<Maintenance> {
+        return maintenanceService.updateMaintenanceRecord(id, maintenance).map {
+            ResponseEntity.ok(it)
+        }.orElseThrow { ResourceNotFoundException("Maintenance record not found with id $id") }
+    }
+
     @DeleteMapping("/{id}")
     fun deleteMaintenanceRecord(@PathVariable id: Long): ResponseEntity<Void> {
         return if (maintenanceService.deleteMaintenanceRecord(id)) {
             ResponseEntity.noContent().build()
         } else {
-            ResponseEntity.notFound().build()
+            throw ResourceNotFoundException("Maintenance record not found with id $id")
         }
     }
 }
