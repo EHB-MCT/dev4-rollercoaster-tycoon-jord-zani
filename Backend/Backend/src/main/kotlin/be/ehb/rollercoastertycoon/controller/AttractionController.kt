@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/attractions")
+@CrossOrigin(origins = ["http://localhost:5173"])
 class AttractionController(@Autowired private val attractionService: AttractionService) {
 
     @GetMapping

@@ -38,7 +38,7 @@ export default {
   methods: {
     fetchAttractions() {
       this.isLoading = true;
-      apiClient.get('/api/attractions')
+      apiClient.get('/attractions')
         .then(response => {
           this.attractions = response.data;
           this.isLoading = false;
