@@ -10,8 +10,8 @@ This project is the for the Rollercoaster Tycoon management application. The bac
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Running the Application](#running-the-application)
-- [Sources and References](#sources-and-references)
 - [API Endpoints](#api-endpoints)
+- [Sources and References](#sources-and-references)
 - [License](#license)
 
 ## Features
