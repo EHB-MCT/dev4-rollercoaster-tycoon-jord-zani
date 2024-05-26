@@ -1,16 +1,40 @@
-<!-- src/views/Attractions.vue -->
 <template>
   <v-container>
     <h1>Attractions</h1>
-    <router-link to="/attractions/add">Add New Attraction</router-link>
-    <ul v-if="!isLoading">
-      <li v-for="attraction in attractions" :key="attraction.id">
-        {{ attraction.name }}
-        <router-link :to="`/attractions/edit/${attraction.id}`">Edit</router-link>
-        <router-link :to="`/attractions/${attraction.id}/maintenance`">Maintenance Records</router-link>
-      </li>
-    </ul>
-    <loading v-model:active.sync="isLoading" :is-full-page="true"></loading>
+    <router-link to="/attractions/add">
+      <v-btn color="primary" class="mb-4">
+        Add New Attraction
+      </v-btn>
+    </router-link>
+    <v-row>
+      <v-col
+        v-for="attraction in attractions"
+        :key="attraction.id"
+        cols="12"
+        sm="6"
+        md="4"
+        class="mb-4"
+      >
+        <v-card>
+          <v-img
+            :src="attraction.imageUrl"
+            height="200px"
+            class="fill-image"
+            cover
+          ></v-img>
+          <v-card-title>{{ attraction.name }}</v-card-title>
+          <v-card-actions>
+            <router-link :to="`/attractions/edit/${attraction.id}`">
+              <v-btn text color="primary">Edit</v-btn>
+            </router-link>
+            <router-link :to="`/attractions/${attraction.id}/maintenance`">
+              <v-btn text color="primary">Maintenance Records</v-btn>
+            </router-link>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
+    <loading v-model:active="isLoading" :is-full-page="true"></loading>
     <v-alert v-if="error" type="error">{{ error }}</v-alert>
   </v-container>
 </template>
@@ -29,7 +53,7 @@ export default {
     return {
       attractions: [],
       isLoading: false,
-      error: null,
+      error: null
     };
   },
   created() {
@@ -52,3 +76,25 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.v-card {
+  border-radius: 15px;
+}
+.v-card-title {
+  font-weight: bold;
+}
+.fill-image {
+  object-fit: cover;
+}
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.5rem;
+  color: #3f51b5;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.v-btn {
+  margin: 0.5rem;
+}
+</style>

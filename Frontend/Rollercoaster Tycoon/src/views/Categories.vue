@@ -12,7 +12,10 @@
       <v-col v-for="category in categories" :key="category.id" cols="12" md="4">
         <v-card>
           <v-list-item-content>
-            <v-card-title>{{ category.name }}</v-card-title>
+            <v-card-title>
+              {{ category.name }}
+              <v-icon class="ml-2">{{ getIcon(category.name) }}</v-icon>
+            </v-card-title>
           </v-list-item-content>
           <v-card-actions>
             <router-link :to="'/categories/edit/' + category.id">
@@ -61,7 +64,32 @@ export default {
           this.error = 'There was an error deleting the category!';
           console.error('There was an error deleting the category!', error);
         });
+    },
+    getIcon(categoryName) {
+      switch (categoryName) {
+        case 'Thrill Rides':
+          return 'mdi-fire';
+        case 'Family Rides':
+          return 'mdi-account-group';
+        case 'Water Rides':
+          return 'mdi-water';
+        case 'Shows':
+          return 'mdi-theater';
+        default:
+          return 'mdi-human-greeting';
+      }
     }
   }
 };
 </script>
+
+<style scoped>
+.v-list-item-title {
+  display: flex;
+  align-items: center;
+}
+
+.ml-2 {
+  margin-left: 10px;
+}
+</style>

@@ -26,6 +26,7 @@ class AttractionController(@Autowired private val attractionService: AttractionS
 
     @PostMapping
     fun createAttraction(@RequestBody attraction: Attraction): Attraction {
+        println("Received attraction: $attraction")
         return attractionService.createAttraction(attraction)
     }
 

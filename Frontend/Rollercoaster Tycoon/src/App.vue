@@ -1,11 +1,17 @@
 <template>
   <v-app>
-    <v-app-bar app>
+    <v-app-bar app color="primary" dark>
       <v-toolbar-title>Rollercoaster Tycoon</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn text to="/">Home</v-btn>
-      <v-btn text to="/attractions">Attractions</v-btn>
-      <v-btn text to="/categories">Categories</v-btn>
+      <router-link to="/" class="router-link">
+        <v-btn text>Home</v-btn>
+      </router-link>
+      <router-link to="/attractions" class="router-link">
+        <v-btn text>Attractions</v-btn>
+      </router-link>
+      <router-link to="/categories" class="router-link">
+        <v-btn text>Categories</v-btn>
+      </router-link>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -44,5 +50,33 @@ h1 {
 
 v-container {
   margin-top: 20px;
+}
+
+.v-app-bar {
+  background-color: #3f51b5 !important;
+}
+
+.v-btn {
+  margin: 0.5rem;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.5rem;
+  color: #3f51b5;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.v-card {
+  border-radius: 15px;
+}
+
+.v-card-title {
+  font-weight: bold;
+}
+
+.fill-image {
+  object-fit: cover;
 }
 </style>
