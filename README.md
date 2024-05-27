@@ -197,6 +197,27 @@ This file lists the sources and references used during the development of the Ro
 
 ## Frontend
 
+
+### Images and Videos
+
+The attractions used in the project are from [Walibi](https://www.walibi.be/en).
+
+The videos used in the project:
+
+[Kondaa](https://youtu.be/OE8z9u5ow-M%27)
+[Pulsar](https://youtu.be/fv020y-0x_g%27)
+[Vampire](https://youtu.be/Gied219rqfg%27)
+[Tiki-Waka](https://youtu.be/L0RgCcrWiaQ)
+[Calamity Mine](https://youtu.be/JptcaGlxEs4%27)
+[Dalton Terror](https://youtu.be/sbsWnobeSQ8%27)
+[Fun Pilot](https://youtu.be/wITg_VTBqvQ%27)
+[Octopus](https://youtu.be/X2mU6VkJc-0%27)
+[Radja River](https://youtu.be/4Lgo4zU3XG4%27)
+[Flash Back](https://youtu.be/stNqFQ6JgAs%27)
+[Gold River Adventure](https://youtu.be/Ol_xLQI_sEM%27)
+[Cinema 4D](https://youtu.be/iGce9LFLnvI%27)
+[Stunt Show](https://youtu.be/i0gIWdTa2kQ%27)
+
 ### Documentation and Tutorials
 
 1. **Vue.js Documentation**
