@@ -1,4 +1,3 @@
-<!-- src/views/AddMaintenanceRecord.vue -->
 <template>
   <v-container>
     <h1>Add Maintenance Record for {{ attraction.name }}</h1>

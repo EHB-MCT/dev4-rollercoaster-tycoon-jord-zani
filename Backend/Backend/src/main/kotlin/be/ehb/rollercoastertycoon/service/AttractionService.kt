@@ -3,6 +3,7 @@ package be.ehb.rollercoastertycoon.service
 import be.ehb.rollercoastertycoon.model.Attraction
 import be.ehb.rollercoastertycoon.repository.AttractionRepository
 import be.ehb.rollercoastertycoon.repository.CategoryRepository
+import be.ehb.rollercoastertycoon.repository.FaultRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.util.*
@@ -10,15 +11,23 @@ import java.util.*
 @Service
 class AttractionService(
     @Autowired private val attractionRepository: AttractionRepository,
-    @Autowired private val categoryRepository: CategoryRepository
+    @Autowired private val categoryRepository: CategoryRepository,
+    private val faultRepository: FaultRepository
 ) {
 
     fun getAllAttractions(): List<Attraction> {
-        return attractionRepository.findAll()
+        val attractions = attractionRepository.findAll()
+        attractions.forEach { attraction ->
+            attraction.hasUnresolvedFaults = faultRepository.findByAttractionId(attraction.id).any { !it.resolved }
+        }
+        return attractions
     }
 
     fun getAttractionById(id: Long): Optional<Attraction> {
-        return attractionRepository.findById(id)
+        return attractionRepository.findById(id).map { attraction ->
+            attraction.hasUnresolvedFaults = faultRepository.findByAttractionId(attraction.id).any { !it.resolved }
+            attraction
+        }
     }
 
     fun createAttraction(attraction: Attraction): Attraction {

@@ -1,14 +1,21 @@
-<!-- src/views/MaintenanceRecords.vue -->
 <template>
   <v-container>
     <h1>Maintenance Records for {{ attraction.name }}</h1>
-    <router-link :to="`/maintenance/add/${attraction.id}`">Add Maintenance Record</router-link>
-    <ul v-if="!isLoading">
-      <li v-for="record in maintenanceRecords" :key="record.id">
-        {{ record.date }} - {{ record.description }} - {{ record.resolved ? 'Resolved' : 'Unresolved' }}
-        <v-btn @click="resolveRecord(record.id)" v-if="!record.resolved">Resolve</v-btn>
-      </li>
-    </ul>
+    <router-link :to="`/maintenance/add/${attraction.id}`">
+      <v-btn color="primary" class="mb-4">Add Maintenance Record</v-btn>
+    </router-link>
+    <v-row>
+      <v-col v-for="record in maintenanceRecords" :key="record.id" cols="12" md="6">
+        <v-card class="mb-4">
+          <v-card-title>{{ record.date }}</v-card-title>
+          <v-card-subtitle>{{ record.description }}</v-card-subtitle>
+          <v-card-text>{{ record.resolved ? 'Resolved' : 'Unresolved' }}</v-card-text>
+          <v-card-actions>
+            <v-btn @click="resolveRecord(record.id)" v-if="!record.resolved" color="success">Resolve</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
     <loading v-model:active="isLoading" :is-full-page="true"></loading>
     <v-alert v-if="error" type="error">{{ error }}</v-alert>
   </v-container>
@@ -62,7 +69,7 @@ export default {
     },
     resolveRecord(recordId) {
       this.isLoading = true;
-      apiClient.put(`/maintenance/${recordId}/resolve`)
+      apiClient.put(`/attractions/${this.attraction.id}/maintenance/${recordId}/resolve`)
         .then(() => {
           this.fetchMaintenanceRecords(this.attraction.id);
           this.isLoading = false;

@@ -1,40 +1,34 @@
 package be.ehb.rollercoastertycoon.service
 
 import be.ehb.rollercoastertycoon.model.Fault
-import be.ehb.rollercoastertycoon.repository.AttractionRepository
 import be.ehb.rollercoastertycoon.repository.FaultRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import java.util.*
 
 @Service
-class FaultService(@Autowired private val faultRepository: FaultRepository,
-                   @Autowired private val attractionRepository: AttractionRepository) {
+class FaultService(@Autowired private val faultRepository: FaultRepository) {
 
     fun getAllFaults(): List<Fault> {
         return faultRepository.findAll()
     }
 
-    fun getFaultsByAttraction(attractionId: Long): List<Fault> {
-        val attraction = attractionRepository.findById(attractionId).orElseThrow {
-            IllegalArgumentException("Attraction not found with id $attractionId")
-        }
-        return faultRepository.findByAttraction(attraction)
-    }
-
-    fun getFaultById(id: Long): Optional<Fault> {
-        return faultRepository.findById(id)
+    fun getFaultById(id: Long): Fault {
+        return faultRepository.findById(id).orElseThrow { IllegalArgumentException("Fault not found with id $id") }
     }
 
     fun createFault(fault: Fault): Fault {
         return faultRepository.save(fault)
     }
 
-    fun resolveFault(id: Long): Optional<Fault> {
+    fun updateFault(id: Long, updatedFault: Fault): Fault {
         return faultRepository.findById(id).map {
-            val resolved = it.copy(resolved = true)
-            faultRepository.save(resolved)
-        }
+            val updated = it.copy(
+                date = updatedFault.date,
+                description = updatedFault.description,
+                resolved = updatedFault.resolved
+            )
+            faultRepository.save(updated)
+        }.orElseThrow { IllegalArgumentException("Fault not found with id $id") }
     }
 
     fun deleteFault(id: Long): Boolean {

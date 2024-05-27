@@ -1,11 +1,22 @@
 <template>
-  <v-container class="home-container">
-    <div class="overlay">
-      <h1>Welcome to Rollercoaster Tycoon</h1>
-      <router-link to="/attractions">
-        <v-btn color="primary">View Attractions</v-btn>
-      </router-link>
-    </div>
+  <v-container class="home-container fill-height" fluid>
+    <v-row
+      class="fill-height"
+      align="center"
+      justify="center"
+    >
+      <v-col
+        class="text-center"
+        cols="12"
+      >
+        <div class="overlay">
+          <h1>Welcome to Rollercoaster Tycoon</h1>
+          <router-link to="/attractions">
+            <v-btn color="primary">View Attractions</v-btn>
+          </router-link>
+        </div>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -17,22 +28,17 @@ export default {
 
 <style scoped>
 .home-container {
-  background-image: url('@/assets/Rollercoasterpark-Wallpaper.jpeg');
+  background-image: url('@/assets/wallpaper2.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  text-align: center;
 }
 
 .overlay {
-  background: rgba(0, 0, 0, 0.5); /* Optional: add a dark overlay for better text visibility */
+  background: rgba(0, 0, 0, 0.5); 
   padding: 20px;
   border-radius: 10px;
+  text-align: center;
 }
 
 h1 {

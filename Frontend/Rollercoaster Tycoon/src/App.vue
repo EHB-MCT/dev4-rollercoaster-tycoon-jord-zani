@@ -14,9 +14,7 @@
       </router-link>
     </v-app-bar>
     <v-main>
-      <v-container>
-        <router-view></router-view>
-      </v-container>
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
@@ -32,11 +30,6 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
-}
-
-h1 {
-  color: #333;
 }
 
 .router-link {
@@ -48,35 +41,11 @@ h1 {
   text-decoration: underline;
 }
 
-v-container {
-  margin-top: 20px;
-}
-
-.v-app-bar {
+/* .v-app-bar {
   background-color: #3f51b5 !important;
-}
+} */
 
 .v-btn {
   margin: 0.5rem;
-}
-
-h1 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 2.5rem;
-  color: #3f51b5;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.v-card {
-  border-radius: 15px;
-}
-
-.v-card-title {
-  font-weight: bold;
-}
-
-.fill-image {
-  object-fit: cover;
 }
 </style>

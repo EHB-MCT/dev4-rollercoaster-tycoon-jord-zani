@@ -1,6 +1,6 @@
 package be.ehb.rollercoastertycoon.service
 
-import be.ehb.rollercoastertycoon.model.Maintenance
+import be.ehb.rollercoastertycoon.model.MaintenanceRecord
 import be.ehb.rollercoastertycoon.repository.MaintenanceRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -9,39 +9,21 @@ import java.util.*
 @Service
 class MaintenanceService(@Autowired private val maintenanceRepository: MaintenanceRepository) {
 
-    fun getAllMaintenanceRecords(): List<Maintenance> {
-        return maintenanceRepository.findAll()
-    }
-
-    fun getMaintenanceRecordsByAttraction(attractionId: Long): List<Maintenance> {
+    fun getAllMaintenanceRecords(attractionId: Long): List<MaintenanceRecord> {
         return maintenanceRepository.findByAttractionId(attractionId)
     }
 
-    fun getMaintenanceRecordById(id: Long): Optional<Maintenance> {
-        return maintenanceRepository.findById(id)
+    fun createMaintenanceRecord(maintenanceRecord: MaintenanceRecord): MaintenanceRecord {
+        return maintenanceRepository.save(maintenanceRecord)
     }
 
-    fun createMaintenanceRecord(maintenance: Maintenance): Maintenance {
-        return maintenanceRepository.save(maintenance)
-    }
-
-    fun updateMaintenanceRecord(id: Long, updatedMaintenance: Maintenance): Optional<Maintenance> {
-        return maintenanceRepository.findById(id).map {
-            val updated = it.copy(
-                date = updatedMaintenance.date,
-                description = updatedMaintenance.description,
-                attraction = updatedMaintenance.attraction
-            )
-            maintenanceRepository.save(updated)
+    fun resolveMaintenanceRecord(id: Long): Optional<MaintenanceRecord> {
+        val record = maintenanceRepository.findById(id)
+        if (record.isPresent) {
+            val resolvedRecord = record.get().copy(resolved = true)
+            maintenanceRepository.save(resolvedRecord)
+            return Optional.of(resolvedRecord)
         }
-    }
-
-    fun deleteMaintenanceRecord(id: Long): Boolean {
-        return if (maintenanceRepository.existsById(id)) {
-            maintenanceRepository.deleteById(id)
-            true
-        } else {
-            false
-        }
+        return Optional.empty()
     }
 }

@@ -30,6 +30,8 @@
             <router-link :to="`/attractions/${attraction.id}/maintenance`">
               <v-btn text color="primary">Maintenance Records</v-btn>
             </router-link>
+            <v-icon v-if="attraction.hasUnresolvedFaults" color="red">mdi-alert-circle</v-icon>
+            <v-icon v-else color="green">mdi-check-circle</v-icon>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -96,5 +98,10 @@ h1 {
 }
 .v-btn {
   margin: 0.5rem;
+}
+.v-card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>

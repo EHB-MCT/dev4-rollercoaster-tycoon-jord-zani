@@ -1,4 +1,3 @@
-<!-- src/views/AddCategory.vue -->
 <template>
   <v-container>
     <h1>Add New Category</h1>

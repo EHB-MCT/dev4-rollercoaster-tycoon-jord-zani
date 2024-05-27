@@ -1,51 +1,32 @@
 package be.ehb.rollercoastertycoon.controller
 
 import be.ehb.rollercoastertycoon.exception.ResourceNotFoundException
-import be.ehb.rollercoastertycoon.model.Maintenance
+import be.ehb.rollercoastertycoon.model.MaintenanceRecord
 import be.ehb.rollercoastertycoon.service.MaintenanceService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/api/maintenance")
+@RequestMapping("/api/attractions/{attractionId}/maintenance")
+@CrossOrigin(origins = ["http://localhost:5173"])
 class MaintenanceController(@Autowired private val maintenanceService: MaintenanceService) {
 
     @GetMapping
-    fun getAllMaintenanceRecords(): List<Maintenance> {
-        return maintenanceService.getAllMaintenanceRecords()
-    }
-
-    @GetMapping("/attraction/{attractionId}")
-    fun getMaintenanceRecordsByAttraction(@PathVariable attractionId: Long): List<Maintenance> {
-        return maintenanceService.getMaintenanceRecordsByAttraction(attractionId)
-    }
-
-    @GetMapping("/{id}")
-    fun getMaintenanceRecordById(@PathVariable id: Long): ResponseEntity<Maintenance> {
-        return maintenanceService.getMaintenanceRecordById(id).map {
-            ResponseEntity.ok(it)
-        }.orElseThrow { ResourceNotFoundException("Maintenance record not found with id $id") }
+    fun getAllMaintenanceRecords(@PathVariable attractionId: Long): List<MaintenanceRecord> {
+        return maintenanceService.getAllMaintenanceRecords(attractionId)
     }
 
     @PostMapping
-    fun createMaintenanceRecord(@RequestBody maintenance: Maintenance): Maintenance {
-        return maintenanceService.createMaintenanceRecord(maintenance)
+    fun createMaintenanceRecord(@PathVariable attractionId: Long, @RequestBody maintenanceRecord: MaintenanceRecord): MaintenanceRecord {
+        maintenanceRecord.attractionId = attractionId
+        return maintenanceService.createMaintenanceRecord(maintenanceRecord)
     }
 
-    @PutMapping("/{id}")
-    fun updateMaintenanceRecord(@PathVariable id: Long, @RequestBody maintenance: Maintenance): ResponseEntity<Maintenance> {
-        return maintenanceService.updateMaintenanceRecord(id, maintenance).map {
+    @PutMapping("/{id}/resolve")
+    fun resolveMaintenanceRecord(@PathVariable id: Long): ResponseEntity<MaintenanceRecord> {
+        return maintenanceService.resolveMaintenanceRecord(id).map {
             ResponseEntity.ok(it)
         }.orElseThrow { ResourceNotFoundException("Maintenance record not found with id $id") }
-    }
-
-    @DeleteMapping("/{id}")
-    fun deleteMaintenanceRecord(@PathVariable id: Long): ResponseEntity<Void> {
-        return if (maintenanceService.deleteMaintenanceRecord(id)) {
-            ResponseEntity.noContent().build()
-        } else {
-            throw ResourceNotFoundException("Maintenance record not found with id $id")
-        }
     }
 }

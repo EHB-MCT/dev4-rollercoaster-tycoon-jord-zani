@@ -1,4 +1,3 @@
-<!-- src/views/EditAttraction.vue -->
 <template>
   <v-container>
     <h1>Edit Attraction</h1>

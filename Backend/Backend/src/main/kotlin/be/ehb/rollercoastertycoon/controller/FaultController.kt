@@ -1,6 +1,5 @@
 package be.ehb.rollercoastertycoon.controller
 
-import be.ehb.rollercoastertycoon.exception.ResourceNotFoundException
 import be.ehb.rollercoastertycoon.model.Fault
 import be.ehb.rollercoastertycoon.service.FaultService
 import org.springframework.beans.factory.annotation.Autowired
@@ -9,6 +8,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/faults")
+@CrossOrigin(origins = ["http://localhost:5173"])
 class FaultController(@Autowired private val faultService: FaultService) {
 
     @GetMapping
@@ -16,28 +16,19 @@ class FaultController(@Autowired private val faultService: FaultService) {
         return faultService.getAllFaults()
     }
 
-    @GetMapping("/attraction/{attractionId}")
-    fun getFaultsByAttraction(@PathVariable attractionId: Long): List<Fault> {
-        return faultService.getFaultsByAttraction(attractionId)
-    }
-
     @GetMapping("/{id}")
     fun getFaultById(@PathVariable id: Long): ResponseEntity<Fault> {
-        return faultService.getFaultById(id).map {
-            ResponseEntity.ok(it)
-        }.orElseThrow { ResourceNotFoundException("Fault not found with id $id") }
+        return ResponseEntity.ok(faultService.getFaultById(id))
     }
 
     @PostMapping
-    fun createFault(@RequestBody fault: Fault): Fault {
-        return faultService.createFault(fault)
+    fun createFault(@RequestBody fault: Fault): ResponseEntity<Fault> {
+        return ResponseEntity.ok(faultService.createFault(fault))
     }
 
-    @PutMapping("/{id}/resolve")
-    fun resolveFault(@PathVariable id: Long): ResponseEntity<Fault> {
-        return faultService.resolveFault(id).map {
-            ResponseEntity.ok(it)
-        }.orElseThrow { ResourceNotFoundException("Fault not found with id $id") }
+    @PutMapping("/{id}")
+    fun updateFault(@PathVariable id: Long, @RequestBody fault: Fault): ResponseEntity<Fault> {
+        return ResponseEntity.ok(faultService.updateFault(id, fault))
     }
 
     @DeleteMapping("/{id}")
@@ -45,7 +36,7 @@ class FaultController(@Autowired private val faultService: FaultService) {
         return if (faultService.deleteFault(id)) {
             ResponseEntity.noContent().build()
         } else {
-            throw ResourceNotFoundException("Fault not found with id $id")
+            ResponseEntity.notFound().build()
         }
     }
 }

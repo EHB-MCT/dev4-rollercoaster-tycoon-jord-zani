@@ -3,12 +3,15 @@ package be.ehb.rollercoastertycoon.model
 import jakarta.persistence.*
 
 @Entity
-@Table(name = "maintenance")
-data class Maintenance(
+@Table(name = "maintenance_records")
+data class MaintenanceRecord(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
+
+    @Column(name = "attraction_id")
+    var attractionId: Long = 0,
+
     val date: String,
     val description: String,
-    @ManyToOne @JoinColumn(name = "attraction_id")
-    val attraction: Attraction
+    val resolved: Boolean = false
 )

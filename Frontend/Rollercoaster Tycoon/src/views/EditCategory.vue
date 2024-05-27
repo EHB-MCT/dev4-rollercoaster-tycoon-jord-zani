@@ -1,4 +1,3 @@
-<!-- src/views/EditCategory.vue -->
 <template>
   <v-container>
     <h1>Edit Category</h1>

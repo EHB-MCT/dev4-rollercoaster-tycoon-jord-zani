@@ -11,6 +11,7 @@ data class Fault(
     @ManyToOne @JoinColumn(name = "attraction_id")
     val attraction: Attraction,
 
+    val date: String,
     val description: String,
     val resolved: Boolean = false
 )

@@ -21,5 +21,8 @@ data class Attraction(
 
     val imageUrl: String? = null,
 
-    val videoUrl: String? = null
+    val videoUrl: String? = null,
+
+    @Transient
+    var hasUnresolvedFaults: Boolean = false
 )
