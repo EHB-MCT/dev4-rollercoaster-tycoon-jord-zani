@@ -31,3 +31,51 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Ignore IntelliJ IDEA project files
+.idea/
+
+
+# Ignore build output directories
+/target/
+/out/
+/bin/
+
+# Ignore log files
+logs/
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Ignore Maven specific files
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# Ignore temporary files
+*~
+
+# Ignore Eclipse project files (if the project is imported into Eclipse)
+.settings/
+.loadpath
+
+# Ignore VS Code project files (if you use VS Code alongside IntelliJ)
+/.vscode/
+
+
+
+# Ignore Gradle specific files
+.gradle/
+
+
+# Ignore test results
+/test-output/
+/test-results/
