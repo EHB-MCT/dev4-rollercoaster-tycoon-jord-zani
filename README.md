@@ -17,7 +17,7 @@ This project is the for the Rollercoaster Tycoon management application. The bac
 ## Features
 
 - View a list of all attractions in the theme park.
-  ![image]([https://github.com/EHB-MCT/dev4-rollercoaster-tycoon-jord-zani/assets/80400239/730f2fa2-c0da-4dfd-8a11-d74b1f0235b7](https://github.com/EHB-MCT/dev4-rollercoaster-tycoon-jord-zani/assets/80400239/730f2fa2-c0da-4dfd-8a11-d74b1f0235b7))
+  ![image](https://github.com/EHB-MCT/dev4-rollercoaster-tycoon-jord-zani/assets/80400239/2dd17364-3055-442b-bb26-10abac294cee)
 
 - Add, edit, or delete attractions.
   ![image](https://github.com/EHB-MCT/dev4-rollercoaster-tycoon-jord-zani/assets/80400239/fdec13a9-157b-4d0a-b9d9-11f359512f7a)
