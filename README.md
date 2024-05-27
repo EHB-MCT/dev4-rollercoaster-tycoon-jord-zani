@@ -96,7 +96,7 @@ npm install
 npm run serve
 ```
 
-The application will be available at `http://localhost:8080` for the backend and `http://localhost:8081` for the frontend.
+The application will be available at `http://localhost:8080` for the backend and `http://localhost:5173` for the frontend.
 
 ## API Endpoints
 
